@@ -25,3 +25,8 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+[user]
+	name = 
+	email = 
+[mergetool]
+	keepBackup = true
