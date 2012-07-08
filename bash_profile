@@ -8,7 +8,7 @@ export EDITOR="vim"
 export PATH
 
 # Make some commands not show up in history
-export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+export HISTIGNORE="ls:ls *:cd:cd *:pwd;exit:date:* --help:history*:&"
 
 eval "$(rbenv init -)"
 
