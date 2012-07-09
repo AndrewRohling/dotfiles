@@ -1,7 +1,7 @@
 
 alias ls="ls -G"
 
-PATH=$PATH:$HOME/bin:$HOME/.rbenv/versions/current/bin
+PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.rbenv/versions/current/bin
 
 export rvm_archflags="-arch x86_64"
 export EDITOR="vim"
