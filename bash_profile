@@ -1,6 +1,8 @@
 
 alias ls="ls -G"
 
+if [ "x`ps ax |grep [s]sh-agent`" == "x" ]; then ssh-agent; fi
+
 PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.rbenv/versions/current/bin
 
 export rvm_archflags="-arch x86_64"
