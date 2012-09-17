@@ -4,5 +4,7 @@
 
 alias ls='colorls -G'
 
+if [ "x`ps ax |grep [s]sh-agent`" == "x" ]; then ssh-agent; fi
+
 PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
 export PATH HOME TERM
