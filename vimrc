@@ -47,6 +47,12 @@ set cursorline
 
 " Make tabs as wide as two spaces
 set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+set autoindent
+
+
 
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
@@ -111,19 +117,6 @@ if has("autocmd")
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
-
-
-
-
-
-
-
-
-
-set shiftwidth=2
-set shiftround
-set expandtab
-set autoindent
 
 set background=dark
 colorscheme solarized
