@@ -1,0 +1,9 @@
+OPTIONS=color
+CHARACTER=Wizard
+NAME=Snocone
+OPTIONS=gender:female
+OPTIONS=race:gnome
+OPTIONS=catname:Morris
+OPTIONS=align:lawful
+
+
