@@ -46,8 +46,8 @@ syntax on
 set cursorline
 
 " Make tabs as wide as two spaces
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set shiftround
 set expandtab
 set autoindent
@@ -114,7 +114,9 @@ if has("autocmd")
 	filetype on
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+    autocmd! bufwritepost ~/.vimrc source %
 endif
 
-set background=dark
 colorscheme solarized
+
+call pathogen#infect()
