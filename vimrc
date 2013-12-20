@@ -52,8 +52,6 @@ set shiftround
 set expandtab
 set autoindent
 
-
-
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
