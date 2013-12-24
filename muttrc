@@ -1,5 +1,5 @@
 source $HOME/.muttrc.auth
-source muttrc.colors
+source $HOME/.dotfiles/muttrc.colors
 
 set spoolfile = "+INBOX"
 set record="Sent"
