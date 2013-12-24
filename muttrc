@@ -46,3 +46,7 @@ auto_view text/html
 set editor = "vim"
 
 macro index,pager \ca ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs out of a message"
+
+
+macro index <f4> '<sync-mailbox><enter-command>source ~/.muttrc.auth1<enter><change-folder>!<enter>'
+macro index <f5> '<sync-mailbox><enter-command>source ~/.muttrc.auth2<enter><change-folder>!<enter>'
