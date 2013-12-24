@@ -1,0 +1,48 @@
+source $HOME/.muttrc.auth
+source muttrc.colors
+
+set spoolfile = "+INBOX"
+set record="Sent"
+set postponed="Drafts"
+
+set imap_check_subscribed
+set timeout = 300
+set mail_check = 120
+set imap_keepalive = 300
+set imap_idle
+unset imap_passive
+unset imap_peek
+
+
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+
+macro index S "<tag-prefix><enter-command>unset resolve<enter><tag-prefix><clear-flag>N<tag-prefix><enter-command>set resolve<enter><tag-prefix><save-message>=INBOX/Junk<enter>" "file as Junk"
+
+macro pager S "<save-message>=INBOX/Junk<enter>" "file as Junk"
+
+# Return to Inbox by pressing "."
+macro index . "<change-folder>=INBOX<enter>" "Inbox"
+
+macro index c "?" "open a different folder"
+macro pager c "?" "open a different folder"
+
+# Move spam to the Spam folder more easily
+macro index X "s=.Spam\n" "file as Spam"
+macro pager X "s=.Spam\n" "file as Spam"
+
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+auto_view text/html
+
+# Editor
+set editor = "vim"
+
+macro index,pager \ca ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs out of a message"
