@@ -1,4 +1,4 @@
-source $HOME/.muttrc.auth
+source $HOME/.muttrc.auth1
 source $HOME/.dotfiles/muttrc.colors
 
 set spoolfile = "+INBOX"
