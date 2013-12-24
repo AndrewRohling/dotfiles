@@ -117,6 +117,7 @@ if has("autocmd")
     autocmd! bufwritepost ~/.vimrc source %
 endif
 
+set background=dark
 colorscheme solarized
 
 call pathogen#infect()
