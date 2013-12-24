@@ -1,0 +1,9 @@
+# Colours
+color index white black ~N
+color index white black ~O
+color index green black ~R
+
+color status    yellow black 
+color indicator white yellow
+color search    yellow black 
+color markers   yellow black 
