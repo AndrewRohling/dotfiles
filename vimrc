@@ -1,3 +1,6 @@
+filetype plugin on
+filetype indent on
+
 " Make vim more useful
 set nocompatible
 
@@ -118,6 +121,8 @@ if has("autocmd")
 endif
 
 set background=dark
+let g:solarized_termtrans = 1
 colorscheme solarized
 
-call pathogen#infect()
+call pathogen#infect("/Users/andrewrohling/.vim/bundle/{}")
+call pathogen#helptags()

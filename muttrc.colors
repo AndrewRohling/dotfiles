@@ -1,9 +1,9 @@
 # Colours
-color index white black ~N
-color index white black ~O
-color index green black ~R
+color index white default ~N
+color index white default ~O
+color index green default ~R
 
-color status    yellow black 
+color status    yellow default
 color indicator white yellow
-color search    yellow black 
-color markers   yellow black 
+color search    yellow default
+color markers   yellow default
