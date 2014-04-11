@@ -1,5 +1,8 @@
-filetype plugin on
-filetype indent on
+filetype off
+
+filetype plugin indent on
+set modelines=0
+"call pathogen#helptags()
 
 " Make vim more useful
 set nocompatible
@@ -7,8 +10,11 @@ set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 
+set exrc
+
 " Enhance command-line completion
 set wildmenu
+set wildignore=*.class
 
 " Allow cursor keys in insert mode
 set esckeys
@@ -36,7 +42,7 @@ set noeol
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
-	set undodir=~/.vim/undo
+    set undodir=~/.vim/undo
 endif
 
 " Enable line numbers
@@ -54,6 +60,11 @@ set shiftwidth=4
 set shiftround
 set expandtab
 set autoindent
+
+" Indent/dedent/autoindent what you just pasted
+nnoremap >< V`]>
+nnoremap <lt>> V`]<
+nnoremap =- V`]=
 
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
@@ -100,11 +111,11 @@ set scrolloff=3
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    :%s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 
@@ -113,16 +124,30 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 " Automatic commands
 if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+    " Enable file type detection
+    filetype on
+    " Treat .json files as .js
+    autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
     autocmd! bufwritepost ~/.vimrc source %
 endif
 
 set background=dark
-let g:solarized_termtrans = 1
+let g:solarized_termtrans=1
 colorscheme solarized
 
-call pathogen#infect("/Users/andrewrohling/.vim/bundle/{}")
-call pathogen#helptags()
+set foldcolumn=3
+set foldmethod=marker
+
+" Enable omni completion. (Ctrl-X Ctrl-O)
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType java set omnifunc=javacomplete#Complete
+
+
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim

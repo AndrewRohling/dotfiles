@@ -1,6 +1,12 @@
 {
 	"default_module": "powerline.segments.common",
 	"segment_data": {
+		"hostname": {
+			"before": " ",
+			"args": {
+				"only_if_ssh": true
+			}
+		},
 		"uptime": {
 			"before": "⇑  "
 		},
@@ -9,27 +15,35 @@
 		},
 		"date": {
 			"before": "⌚ "
+		},
+		"branch": {
+			"before": "> "
 		}
 	},
 	"segments": {
+	    "left":[
+			{
+				"name": "branch"
+			},
+			{
+				"name": "cwd",
+				"args": {
+					"dir_limit_depth": "3"
+				}
+			}
+	    ],
+	    "status":[
+	    ],
 		"right": [
-			{
-				"name": "uptime",
-				"priority": 50
-			},
-			{
-				"name": "system_load",
-				"priority": 50
-			},
-			{
-				"name": "date"
-			},
 			{
 				"name": "date",
 				"args": {
 					"format": "%H:%M",
 					"istime": true
 				}
+			},
+			{
+				"name": "hostname"
 			}
 		]
 	}
