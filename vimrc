@@ -147,7 +147,14 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType java set omnifunc=javacomplete#Complete
 
-
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/UltiSnips.vim
+call vundle#begin()
+" set runtimepath^=~/.vim/bundle/ctrlp.vim
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bundle/ctrlp.vim'
+Plugin 'bundle/UltiSnips.vim'
+call vundle#end()

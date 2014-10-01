@@ -3,8 +3,8 @@ source $HOME/.dotfiles/muttrc.colors
 source $HOME/.mutt/gpg.rc
 
 set spoolfile = "+INBOX"
-set record="Sent"
-set postponed="Drafts"
+set record="=Sent Messages"
+set postponed="=Drafts"
 
 set imap_check_subscribed
 set timeout = 300
@@ -30,8 +30,8 @@ set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 --batch --quiet --n
 set pgp_import_command="gpg --no-verbose --import -v %f"
 set pgp_export_command="gpg --no-verbose --export --armor %r"
 set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
-set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
-set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r"
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r"
 set pgp_sign_as=7706DB1D
 set pgp_replyencrypt=yes
 set pgp_timeout=1800
@@ -72,4 +72,5 @@ macro index,pager \ca ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; 
 
 macro index <f4> '<sync-mailbox><enter-command>source ~/.muttrc.auth1<enter><change-folder>!<enter>'
 macro index <f5> '<sync-mailbox><enter-command>source ~/.muttrc.auth2<enter><change-folder>!<enter>'
-macro index <f6> '<sync-mailbox><enter-command>source ~/.muttrc.auth3<enter><change-folder>!<enter>'
+alias Mom Suzanne Rohling <srohling65@gmail.com>
+alias Sara Sara Rohling <srohling@suntiva.com>
