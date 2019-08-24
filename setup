@@ -1,0 +1,17 @@
+#!/bin/bash
+VIM=$HOME/.vim
+DOTFILES=$HOME/dotfiles
+
+# vim
+mkdir $VIM
+mkdir $VIM/swaps
+mkdir $VIM/backups
+mkdir $VIM/undo
+
+ln -s $DOTFILES/vim/colors $VIM/colors
+ln -s $DOTFILES/vimrc $HOME/.vimrc
+
+# nethack
+ln -s $DOTFILES/nethackrc $HOME/.nethackrc
+
+# zsh
