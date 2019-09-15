@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 VIM=$HOME/.vim
 DOTFILES=$HOME/dotfiles
 
@@ -7,6 +7,9 @@ mkdir $VIM
 mkdir $VIM/swaps
 mkdir $VIM/backups
 mkdir $VIM/undo
+
+#tmux
+ln -s $DOTFILES/tmux.conf $HOME/.tmux.conf
 
 ln -s $DOTFILES/vim/colors $VIM/colors
 ln -s $DOTFILES/vimrc $HOME/.vimrc
