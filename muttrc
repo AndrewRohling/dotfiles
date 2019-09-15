@@ -72,5 +72,3 @@ macro index,pager \ca ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; 
 
 macro index <f4> '<sync-mailbox><enter-command>source ~/.muttrc.auth1<enter><change-folder>!<enter>'
 macro index <f5> '<sync-mailbox><enter-command>source ~/.muttrc.auth2<enter><change-folder>!<enter>'
-alias Mom Suzanne Rohling <srohling65@gmail.com>
-alias Sara Sara Rohling <srohling@suntiva.com>
