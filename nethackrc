@@ -3,7 +3,9 @@ CHARACTER=Wizard
 NAME=Snocone
 OPTIONS=gender:female
 OPTIONS=race:gnome
-OPTIONS=catname:Morris
+OPTIONS=catname:Fang
 OPTIONS=align:lawful
+OPTIONS=!rest_on_space
+OPTIONS=!autopickup
 
 
