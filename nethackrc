@@ -7,5 +7,5 @@ OPTIONS=catname:Fang
 OPTIONS=align:lawful
 OPTIONS=!rest_on_space
 OPTIONS=!autopickup
-
+OPTIONS=!pickup_burden
 
