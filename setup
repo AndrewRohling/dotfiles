@@ -15,6 +15,7 @@ mkdir $VIM/undo
 #tmux
 ln -s $DOTFILES/tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES/tmux.macos.conf $HOME/.tmux.macos.conf
+ln -s $DOTFILES/tmux.conf.local $HOME/.tmux.conf.local
 
 ln -s $DOTFILES/vim/colors $VIM/colors
 ln -s $DOTFILES/vimrc $HOME/.vimrc
