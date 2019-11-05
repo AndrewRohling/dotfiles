@@ -131,12 +131,20 @@ if has("autocmd")
     autocmd! bufwritepost ~/.vimrc source %
 endif
 
-set background=dark
+if !empty($VIM_COLOR)
+    set background=light
+  else
+    set background=dark
+endif
+
 let g:solarized_termtrans=1
 colorscheme solarized
 
 set foldcolumn=3
 set foldmethod=marker
+
+execute pathogen#infect()
+
 
 " Enable omni completion. (Ctrl-X Ctrl-O)
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -146,4 +154,3 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType java set omnifunc=javacomplete#Complete
-

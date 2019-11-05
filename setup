@@ -9,6 +9,9 @@ mkdir $VIM
 mkdir $VIM/swaps
 mkdir $VIM/backups
 mkdir $VIM/undo
+mkdir $VIM/autload
+mkdir $VIM/bundle
+
 
 
 
@@ -19,6 +22,8 @@ ln -s $DOTFILES/tmux.conf.local $HOME/.tmux.conf.local
 
 ln -s $DOTFILES/vim/colors $VIM/colors
 ln -s $DOTFILES/vimrc $HOME/.vimrc
+ln -s $DOTFILES/autoload $HOME/.vim/autoload
+ln -s $DOTFILES/bundle $HOME/.vim/bundle
 
 
 
