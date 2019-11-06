@@ -1,0 +1,114 @@
+# Our .tmux.conf file
+
+# Setting the prefix from C-b to C-a
+# START:prefix
+set -g prefix C-a
+# END:prefix
+# Free the original Ctrl-b prefix keybinding
+# START:unbind
+unbind C-b
+# END:unbind
+
+# Ensure that we can send Ctrl-A to other apps
+# START:bind_prefix
+bind C-a send-prefix
+# END:bind_prefix
+
+#setting the delay between prefix and command
+# START:delay
+set -s escape-time 1
+# END:delay
+
+# Set the base index for windows to 1 instead of 0
+# START:index
+set -g base-index 1
+# END:index
+
+# Set the base index for panes to 1 instead of 0
+# START:panes_index
+setw -g pane-base-index 1
+# END:panes_index
+
+# Reload the file with Prefix r
+# START:reload
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+# END:reload
+
+# splitting panes
+# START:panesplit
+bind | split-window -h
+bind - split-window -v
+# END:panesplit
+
+# moving between panes
+# START:paneselect
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+# END:paneselect
+
+# Quick pane selection
+# START:panetoggle
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+# END:panetoggle
+
+# Pane resizing
+# START:paneresize
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+# END:paneresize
+
+# mouse support - set to on if you want to use the mouse
+# START:mouse
+set -g mouse on
+# END:mouse
+
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
+
+# Set the default terminal mode to 256color mode
+# START:termcolor
+set -g default-terminal "screen-256color"
+# END:termcolor
+
+# enable activity alerts
+#START:activity
+setw -g monitor-activity on
+set  -g visual-activity on
+#END:activity
+
+#START:utf8
+setw -gq utf8 on
+#END:utf8
+#
+# enable vi keys.
+# START:vikeys
+setw -g mode-keys vi
+# END:vikeys
+
+
+# Allows for faster key repetition
+set -s escape-time 0
+
+set -g status-interval 60
+
+
+# custom copy mode
+#bind Escape copy-mode-vi
+#bind / copy-mode-vi
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi y send -X copy-selection
+unbind p
+bind p paste-buffer
+# ---
+
+# load colors
+if '[ -f ~/.tmux.conf.local ]' 'source ~/.tmux.conf.local'
+
+
+
+# Load mac-specific settings
+if-shell "uname | grep -q Darwin" "source-file ~/.tmux.macos.conf"
