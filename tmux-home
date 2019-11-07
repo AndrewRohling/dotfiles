@@ -1,0 +1,5 @@
+#!/bin/sh
+tmux new-session -s Home -n editor -d
+
+tmux attach -t Home
+
