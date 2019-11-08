@@ -1,0 +1,9 @@
+#!/bin/sh
+tmux new-session -s Home -n editor -d
+
+
+tmux send-keys -t Home '$HOME/bin/loadkeys.sh' C-m
+
+
+tmux attach -t Home
+
