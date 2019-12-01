@@ -3,7 +3,7 @@ tmux new-session -s Home
 
 
 tmux send-keys -t Home '$HOME/bin/loadkeys.sh' C-m
-tmux send-keys -t Home 'unset VIM_COLOR' C-m
+tmux send-keys -t Home 'export VIM_COLOR="light"' C-m
 
 
 tmux attach -t Home
