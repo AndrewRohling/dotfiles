@@ -1,0 +1,41 @@
+#!/bin/sh
+
+clear
+
+read -p "
+[1] adafruit
+[2] soekris
+[3] trinket
+
+? : " action
+
+case $action in
+  1)
+    minicom -c on configuration adafruit
+  ;;
+  2)
+    minicom -c on -b 19200 configuration soekris
+  ;;
+  3)
+      Didx="0"
+      Dtype="USB"
+
+      if [ ! -z "$1" ]
+      then
+          Didx="$1"
+      fi
+
+     if [ ! -z "$2" ]
+    then
+      Dtype="$2"
+    fi
+
+    echo "minicom -b 57600 -o -D /dev/tty$Dtype$Didx"
+
+  ;;
+  *)
+    echo
+    echo "exiting ..."
+    echo
+  ;;
+esac
