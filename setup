@@ -29,10 +29,10 @@ ln -s $dotfiles/tmux.macos.conf $HOME/.tmux.macos.conf
 ln -s $dotfiles/tmux.conf.local $HOME/.tmux.conf.local
 ln -s $dotfiles/tmux.conf.solarized_light $HOME/.tmux.conf.solarized_light
 
-ln -s $dotfiles/vim/colors $VIM/colors
+ln -s $dotfiles/vim/colors $vim/colors
 ln -s $dotfiles/vimrc $HOME/.vimrc
-ln -s $dotfiles/autoload $HOME/.vim/autoload
-ln -s $dotfiles/bundle $HOME/.vim/bundle
+ln -s $dotfiles/autoload $vim/autoload
+ln -s $dotfiles/bundle $vim/bundle
 
 # bin files
 ln -s $bin/serial $HOME/bin/serial
