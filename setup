@@ -1,16 +1,17 @@
 #!/bin/sh
-VIM=$HOME/.vim
-DOTFILES=$HOME/dotfiles
+vim=$HOME/.vim
+dotfiles=$HOME/dotfiles
+bin=$HOME/dotfiles
 
 
 
 # vim
-mkdir $VIM
-mkdir $VIM/swaps
-mkdir $VIM/backups
-mkdir $VIM/undo
-mkdir $VIM/autload
-mkdir $VIM/bundle
+mkdir $vim
+mkdir $vim/swaps
+mkdir $vim/backups
+mkdir $vim/undo
+mkdir $vim/autload
+mkdir $vim/bundle
 
 
 
@@ -23,19 +24,20 @@ rm  $HOME/.tmux.macos.conf
 rm  $HOME/.tmux.conf.local
 rm  $HOME/.tmux.conf.solarized_light
 
-ln -s $DOTFILES/tmux.conf $HOME/.tmux.conf
-ln -s $DOTFILES/tmux.macos.conf $HOME/.tmux.macos.conf
-ln -s $DOTFILES/tmux.conf.local $HOME/.tmux.conf.local
-ln -s $DOTFILES/tmux.conf.solarized_light $HOME/.tmux.conf.solarized_light
+ln -s $dotfiles/tmux.conf $HOME/.tmux.conf
+ln -s $dotfiles/tmux.macos.conf $HOME/.tmux.macos.conf
+ln -s $dotfiles/tmux.conf.local $HOME/.tmux.conf.local
+ln -s $dotfiles/tmux.conf.solarized_light $HOME/.tmux.conf.solarized_light
 
-ln -s $DOTFILES/vim/colors $VIM/colors
-ln -s $DOTFILES/vimrc $HOME/.vimrc
-ln -s $DOTFILES/autoload $HOME/.vim/autoload
-ln -s $DOTFILES/bundle $HOME/.vim/bundle
+ln -s $dotfiles/vim/colors $VIM/colors
+ln -s $dotfiles/vimrc $HOME/.vimrc
+ln -s $dotfiles/autoload $HOME/.vim/autoload
+ln -s $dotfiles/bundle $HOME/.vim/bundle
 
-
+# bin files
+ln -s $bin/serial $HOME/bin/serial
 
 # nethack
-ln -s $DOTFILES/nethackrc $HOME/.nethackrc
+ln -s $dotfiles/nethackrc $HOME/.nethackrc
 
 # zsh
