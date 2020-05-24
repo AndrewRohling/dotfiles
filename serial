@@ -2,6 +2,15 @@
 
 clear
 
+whoiam=$(whoami)
+
+if [ "$whoiam" != "root" ];
+then
+  echo "please run as root"
+  exit 1
+fi
+
+
 read -p "
 [1] raspberry pi
 [2] soekris
@@ -15,7 +24,7 @@ get_ttys()
 {
   os=$(uname)
   tty=$os
-  [ $os = "Linux" ] && tty="ACM" || tty="USB"
+  [ $os = "Linux" ] && tty="ACM" || tty=".usbmodem"
 
   ports=($(ls /dev/tty$tty*))
 
@@ -45,17 +54,17 @@ case $action in
   1)
     port=$(get_ttys)
     echo "minicom -o -c on -m -D $port configuration raspberrypi"
-    # minicom -c on configuration raspberrypi
+    minicom -c on configuration raspberrypi
   ;;
   2)
     port=$(get_ttys)
     echo "minicom -o -c on -m -D $port configuration soekris"
-    # minicom -c on -b 19200 configuration soekris
+    minicom -c on -b 19200 configuration soekris
   ;;
   3)
     port=$(get_ttys)
     echo "minicom -o -c on -m -D $port configuration adafruit"
-    # minicom -o -c on -m -D $port configuration adafruit
+    minicom -o -c on -m -D $port configuration adafruit
   ;;
   *)
     echo
