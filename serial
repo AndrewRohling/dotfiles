@@ -2,6 +2,15 @@
 
 clear
 
+whoiam=$(whoami)
+
+if [ "$whoiam" != "root" ];
+then
+  echo "please run as root"
+  exit 1
+fi
+
+
 read -p "
 [1] adafruit
 [2] soekris 19200
