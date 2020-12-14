@@ -1,65 +1,29 @@
-#!/bin/bash
+#!/bin/sh
 
 clear
 
 read -p "
-[1] raspberry pi
-[2] soekris
-[3] adafruit trinket/metro
-
-[0] exit
+[1] adafruit
+[2] soekris 19200
+[3] soekris 57600
+[4] rasp pi
 
 ? : " action
 
-get_ttys()
-{
-  os=$(uname)
-  tty=$os
-  [ $os = "Linux" ] && tty="ACM" || tty="USB"
-
-  ports=($(ls /dev/tty$tty*))
-
-  createmenu "${#ports[@]}" "${ports[@]}"
-}
-
-createmenu ()
-{
-  arrsize=$1
-
-  select option in "${@:2}"; do
-    if [ "$REPLY" -eq "$arrsize" ];
-    then
-      echo "$option"
-      break;
-    elif [ 1 -le "$REPLY" ] && [ "$REPLY" -le $((arrsize-1)) ];
-    then
-      echo "$option"
-      break;
-    else
-      echo "Incorrect Input: Select a number 1-$arrsize"
-    fi
-  done
-}
-
 case $action in
   1)
-    port=$(get_ttys)
-    echo "minicom -o -c on -m -D $port configuration raspberrypi"
-    # minicom -c on configuration raspberrypi
+    minicom -c on configuration adafruit
   ;;
   2)
-    port=$(get_ttys)
-    echo "minicom -o -c on -m -D $port configuration soekris"
-    # minicom -c on -b 19200 configuration soekris
+    minicom -c on -b 19200 configuration soekris
   ;;
   3)
-    port=$(get_ttys)
-    echo "minicom -o -c on -m -D $port configuration adafruit"
-    # minicom -o -c on -m -D $port configuration adafruit
+    minicom -c on -b 57600 configuration soekris
+  ;;
+  4)
+    minicom -c on configuration rasp
   ;;
   *)
-    echo
     echo "exiting ..."
-    echo
   ;;
 esac
