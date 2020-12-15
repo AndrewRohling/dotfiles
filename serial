@@ -6,6 +6,7 @@ read -p "
 [1] raspberry pi
 [2] soekris
 [3] adafruit trinket/metro
+[4] soekris 57600
 
 [0] exit
 
@@ -56,6 +57,11 @@ case $action in
     port=$(get_ttys)
     echo "minicom -o -c on -m -D $port configuration adafruit"
     # minicom -o -c on -m -D $port configuration adafruit
+  ;;
+   4)
+    port=$(get_ttys)
+    echo "minicom -o -c on -m -D $port configuration soekris57600"
+    # minicom -o -c on -m -D $port configuration soekris57600
   ;;
   *)
     echo
