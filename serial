@@ -23,15 +23,19 @@ read -p "
 case $cfg in
   1)
     configuration="dfl"
+    baudrate="115200"
   ;;
   2)
     configuration="dfl"
+    baudrate="19200"
   ;;
   3)
     configuration="dfl"
+    baudrate="57600"
   ;;
   4)
     configuration="dfl"
+    baudrate="115200"
   ;;
   *)
     echo "exiting ..."
@@ -43,6 +47,14 @@ esac
 
 echo
 echo
+echo "Available devices"
+ls /dev | grep 'USB0\|USB1\|AMA0\|AMC0'
+echo
+echo
+
+echo
+echo
+echo "Available devices"
 ls /dev | grep 'USB0\|USB1\|AMA0\|AMC0'
 echo
 echo
@@ -77,7 +89,6 @@ case $dev in
   ;;
 esac
 
-cat "/etc/minicom/minirc.$configuration"
 echo
-echo "minicom -c on device /dev/tty$device configuration $configuration"
+echo "minicom -c on device /dev/tty$device -b $baudrate configuration $configuration"
 minicom -c on device $device configuration $configuration
