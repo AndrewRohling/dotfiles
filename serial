@@ -17,11 +17,25 @@ read -p "
 [3] soekris 57600
 [4] rasp pi
 
-? : " action
+? : " configuration
 
-case $action in
+read -p "
+
+Device
+
+[1] USB0
+[2] USB1
+[3] ACM0
+[4] AMA0
+
+? : " device
+
+case $configuration in
   1)
-    minicom -c on configuration adafruit
+    cat /etc/minicom/minirc.adafruit
+    echo
+    echo "minicom -c on configuration adafruit $port"
+    minicom -c on device $device configuration adafruit
   ;;
   2)
     minicom -c on -b 19200 configuration soekris
