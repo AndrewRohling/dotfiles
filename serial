@@ -22,16 +22,16 @@ read -p "
 
 case $cfg in
   1)
-    configuration="adafruit"
+    configuration="dfl"
   ;;
   2)
-    configuration="soekris"
+    configuration="dfl"
   ;;
   3)
-    configuration="soekris"
+    configuration="dfl"
   ;;
   4)
-    configuration="raspberrypi"
+    configuration="dfl"
   ;;
   *)
     echo "exiting ..."
