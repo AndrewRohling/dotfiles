@@ -17,7 +17,8 @@ clear
 
 read -p "
 [1] download file
-[2] mount device
+[2] mount device: /mnt
+[3] mount device: /home/snocone
 
 [0] exit
 
@@ -48,6 +49,18 @@ file: " file
     fdisk -l
     echo
    ;;
+
+   3)
+    echo "------- mount device"
+    name="CIRCUITPY"
+    mount_point="/home/snocone/arduino"
+    fdisk -l | grep "^/dev/sda"
+    sudo mkdir -p $mount_point
+    mount -t vfat /dev/sda1  $mount_point/$name
+    fdisk -l
+    echo
+   ;;
+
 
 
 
