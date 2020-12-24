@@ -77,7 +77,6 @@ case $dev in
   ;;
 esac
 
-echo "minicom -c on device /dev/tty$device configuration $device"
 cat "/etc/minicom/minirc.$configuration"
 echo
 echo "minicom -c on device /dev/tty$device configuration $configuration"
