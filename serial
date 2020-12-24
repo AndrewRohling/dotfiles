@@ -17,7 +17,36 @@ read -p "
 [3] soekris 57600
 [4] rasp pi
 
-? : " configuration
+? : " cfg
+
+
+case $cfg in
+  1)
+    configuration="adafruit"
+  ;;
+  2)
+    configuration="soekris"
+  ;;
+  3)
+    configuration="soekris"
+  ;;
+  4)
+    configuration="raspberrypi"
+  ;;
+  *)
+    echo "exiting ..."
+  ;;
+esac
+
+
+
+
+echo
+echo
+ls /dev | grep 'USB0\|USB1\|AMA0\|AMC0'
+echo
+echo
+
 
 read -p "
 
@@ -28,30 +57,28 @@ Device
 [3] ACM0
 [4] AMA0
 
-? : " device
+? : " dev
 
-case $configuration in
+case $dev in
   1)
-    cat /etc/minicom/minirc.adafruit
-    echo
-    echo "minicom -c on configuration adafruit $port"
-    minicom -c on device $device configuration adafruit
+    device="USB0"
   ;;
   2)
-    minicom -c on -b 19200 configuration soekris
+    device="USB1"
   ;;
   3)
-    minicom -c on -b 57600 configuration soekris
+    device="ACM0"
   ;;
   4)
-    minicom -c on configuration rasp
-  ;;
-   4)
-    port=$(get_ttys)
-    echo "minicom -o -c on -m -D $port configuration soekris57600"
-    # minicom -o -c on -m -D $port configuration soekris57600
+    device="AMA0"
   ;;
   *)
     echo "exiting ..."
   ;;
 esac
+
+echo "minicom -c on device /dev/tty$device configuration $device"
+cat "/etc/minicom/minirc.$configuration"
+echo
+echo "minicom -c on device /dev/tty$device configuration $configuration"
+minicom -c on device $device configuration $configuration
