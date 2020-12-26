@@ -52,12 +52,6 @@ ls /dev | grep 'USB0\|USB1\|AMA0\|AMC0'
 echo
 echo
 
-echo
-echo
-echo "Available devices"
-ls /dev | grep 'USB0\|USB1\|AMA0\|AMC0'
-echo
-echo
 
 
 read -p "
