@@ -1,0 +1,97 @@
+#!/bin/sh
+
+onward()
+{
+  echo
+  read -p "continue? [y/n] " forward
+
+  if [ $forward = "${answer#[Nn]}" ]
+  then
+    exit
+  fi
+}
+
+
+clear
+
+
+read -p "
+[1] mount
+
+[0] exit
+
+action: " confirm
+
+
+case  $confirm  in
+  1)
+
+    echo "------- mount setup"
+
+    echo "sudo blkid"
+    sudo blkid
+
+
+
+
+
+    echo "sudo mkdir /mnt/<name-of-the-drive>"
+    echo "sudo nano /etc/fstab"
+    echo "UUID=<uuid-of-your-drive>  <mount-point>  <file-system-type>  <mount-option>  <dump>  <pass>"
+    UUID=<uuid-of-ntfs-file-system>   /mnt/ntfs   ntfs   defaults  0  2"
+    echo "sudo mount -a"
+    echo
+    echo "For swap partitions, the mount point field should be specified as none."
+    echo
+    echo "The defaults mount option will give users read and write access to the file system."
+    echo
+    echo "The value of dump field is usually zero."
+    echo
+    echo "echo "The pass field is used by the fsck program to determine the order in which filesystem "
+    echo "checks are done at reboot time. As you can see in this file, the value of the pass field for the "
+    echo "root file system is 1. Swap partitions do not need to be checked and the value for them is zero"
+    echo "All other file systems should have a value of 2. So I set the pass value as 2 for my drive."
+
+
+
+
+
+
+
+
+
+    echo
+   ;;
+
+
+
+  2)
+    echo "------- mount device"
+    name="CIRCUITPY"
+    fdisk -l | grep "^/dev/sda"
+    sudo mkdir -p /mnt/$name
+    mount -t vfat /dev/sda1  /mnt/$name
+    fdisk -l
+    echo
+   ;;
+
+   3)
+    echo "------- mount device"
+    name="CIRCUITPY"
+    mount_point="/home/snocone/arduino"
+    fdisk -l | grep "^/dev/sda"
+    sudo mkdir -p $mount_point
+    mount -t vfat /dev/sda1  $mount_point/$name
+    fdisk -l
+    echo
+   ;;
+
+
+
+
+  *)
+esac
+
+echo
+echo "------- complete"
+echo

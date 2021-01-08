@@ -24,65 +24,31 @@ case $cfg in
   1)
     configuration="dfl"
     baudrate="115200"
+    device="ACM0"
   ;;
   2)
     configuration="dfl"
     baudrate="19200"
+    device="USB0"
   ;;
   3)
     configuration="dfl"
     baudrate="57600"
+    device="USB0"
   ;;
   4)
     configuration="dfl"
     baudrate="115200"
-  ;;
-  *)
-    echo "exiting ..."
-  ;;
-esac
-
-
-
-
-echo
-echo
-echo "Available devices"
-ls /dev | grep 'USB0\|USB1\|AMA0\|AMC0'
-echo
-echo
-
-
-
-read -p "
-
-Device
-
-[1] USB0
-[2] USB1
-[3] ACM0
-[4] AMA0
-
-? : " dev
-
-case $dev in
-  1)
     device="USB0"
   ;;
-  2)
-    device="USB1"
-  ;;
-  3)
-    device="ACM0"
-  ;;
-  4)
-    device="AMA0"
-  ;;
   *)
     echo "exiting ..."
   ;;
 esac
 
+
+
+
 echo
-echo "minicom -c on device /dev/tty$device -b $baudrate configuration $configuration"
-minicom -c on device $device configuration $configuration
+echo "minicom -c on -D /dev/tty$device -b $baudrate configuration $configuration"
+minicom -c on -D /dev/tty$device configuration $configuration

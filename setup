@@ -37,6 +37,8 @@ ln -s $dotfiles/bundle $vim/bundle
 # bin files
 ln -s $bin/serial $HOME/bin/serial
 ln -s $bin/utils.sh $HOME/bin/utils.sh
+ln -s $bin/on $HOME/bin/on
+ln -s $bin/off $HOME/bin/off
 
 # nethack
 ln -s $dotfiles/nethackrc $HOME/.nethackrc
