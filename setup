@@ -44,3 +44,4 @@ ln -s $bin/off $HOME/bin/off
 ln -s $dotfiles/nethackrc $HOME/.nethackrc
 
 # zsh
+ln -s $dotfiles/.zshrc $HOME/.zshrc
